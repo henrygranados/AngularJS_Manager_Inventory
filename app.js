@@ -1,3 +1,4 @@
+
 var App = angular.module('sortApp', ['ui.bootstrap'])
 
 App.controller('mainController', function($scope, $modal, $log, $filter) {
@@ -13,8 +14,7 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
     { id: 4, name: 'Tommy', Lastname: 'Humbs', age: 32 },
     { id: 5, name: 'Mary', Lastname: 'Browns', age: 18 },
     { id: 6, name: 'Alex', Lastname: 'Sams', age: 50 },
-    { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 },
-    { id: 8, name: 'Liz', Lastname: 'Marls', age: 23}
+    { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 }
   ];  
 
   /*
@@ -38,11 +38,11 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
   $scope.openPopupScreen = function() {
 
     var modalInstance = $modal.open({
-      template: '<div class="modal-header">   <a class="close" data-dismiss="modal" ng-click="cancel()">X</a><h1>Add Customer</h1></div><div class="modal-body">    <form >' +
-        '  <label>Name:</label><input type="text" class="span3" ng-model="name"></br>' +
-        ' <label>Lastname:</label><input type="text" class="span3" ng-model="Lastname"></br>' +
-        ' <label>Age:</label><input type="number" class="span3" ng-model="age"></br>' +
-        ' <button type="button" class="btn btn-success" ng-click="add()">Add In List</button>' +
+      template: '<div class="modal-header">   <a class="close" data-dismiss="modal" ng-click="cancel()"><i class="fa fa-times-circle-o" style="margin:10px;color:black;font-size:35px;"></i></a><h1>Add Customer</h1></div><div class="modal-body">    <form >' +
+        ' <label class="col-sm-3 control-label no-padding-right ng-binding">NAME:</label><input style = "width:300px;"type="text" class="form-control ng-scope ng-pristine ng-valid" ng-model="person.name"></br>' +
+        ' <label class="col-sm-3 control-label no-padding-right ng-binding">LASTNAME:</label><input style = "width:300px;" type="text" class="form-control ng-scope ng-pristine ng-valid" ng-model="person.Lastname"></br>' +
+        ' <label class="col-sm-3 control-label no-padding-right ng-binding">AGE:</label><input style = "width:300px;" type="number"class="form-control ng-scope ng-pristine ng-valid" ng-model="person.age"></br>' +
+        ' <button type="button" class="btn btn-success" ng-click="add()"><i class="ace-icon fa fa-check"></i>Add New Customer</button>' +
         '  <button type="reset" class="btn ">Clear</button>' +
         ' </form>' +
         '</div>' +
@@ -51,27 +51,28 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
         '</div>',
       controller: ModalInstanceCtrl
     });
+    modalInstance.result.then(function (newPerson) {
+      $scope.People.push(newPerson);
+    });
 
   };
-
-  $scope.newPerson = {
-   //Bind ng-model from modal input to properties of this
-};
-
-$scope.add = function() {
-    //Pass newPerson to caller from main controller
-    $modalInstance.close($scope.newPerson);
-};
 
 
 
 var ModalInstanceCtrl = function($scope, $modalInstance) {
+  $scope.person = {name: '', Lastname: '', age: ''};
+  
   $scope.ok = function() {
     $modalInstance.close($scope.selected.item);
   };
 
   $scope.cancel = function() {
     $modalInstance.dismiss('cancel');
+  };
+
+  $scope.add = function() {
+    //Pass newPerson to caller from main controller
+    $modalInstance.close($scope.person);
   };
 };
    
