@@ -33,7 +33,10 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
   This function removes a customer
    */
    $scope.removePerson = function(index){
-    $scope.People.splice(index, 1);
+
+if(confirm("Are you sure to remove Customer")){
+            $scope.People.splice(index, 1);
+        }
    };  
   $scope.openPopupScreen = function() {
 
