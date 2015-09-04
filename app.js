@@ -40,7 +40,7 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
             }
         });
     }
-};  
+};   
   $scope.openPopupScreen = function() {
 
     var modalInstance = $modal.open({
