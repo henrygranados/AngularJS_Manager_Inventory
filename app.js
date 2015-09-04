@@ -48,10 +48,10 @@ if(confirm("Are you sure to remove Customer")){
         ' <button id = "myid" type="button" class="btn btn-success" ng-click="add()"><i class="ace-icon fa fa-check"></i>Add New Customer</button>' +
         '  <button type="reset" class="btn ">Clear</button>' +
         '<div ng-hide = "error_name_message" id="Error_Message_name">'+
-        '<p>Please enter a Name</p>'+
+        '<p>Please enter a name</p>'+
       '</div>'+
       '<div ng-hide = "error_lastname_message" id="Error_Message_Lastname">'+
-        '<p>Please enter a Lastname</p>'+
+        '<p>Please enter a lastname</p>'+
       '</div>'+
       '<div ng-hide = "error_age_message" id="Error_Message_Age">'+
         '<p>Please enter age</p>'+
