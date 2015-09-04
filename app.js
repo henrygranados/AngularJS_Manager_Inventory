@@ -1,5 +1,5 @@
 
-var App = angular.module('sortApp', ['ui.bootstrap'])
+var App = angular.module('App', ['ui.bootstrap'])
 
 App.controller('mainController', function($scope, $modal, $log, $filter) {
 
