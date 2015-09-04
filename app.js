@@ -33,11 +33,14 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
   This function removes a customer
    */
    $scope.removePerson = function(index){
-
-if(confirm("Are you sure to remove Customer")){
-            $scope.People.splice(index, 1);
-        }
-   };  
+    if(confirm("Are you sure to remove Customer")){
+        angular.forEach($scope.People, function(value, key) {
+            if (value.id === index){
+                $scope.People.splice(key, 1);
+            }
+        });
+    }
+};  
   $scope.openPopupScreen = function() {
 
     var modalInstance = $modal.open({
