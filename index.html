@@ -106,6 +106,20 @@ display: none;
         <td>
              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="removePerson(people.id)"></button> Remove
         </td>
+        <td>
+<div ng-hide="editorEnabled">
+    <!--   {{people.id}}
+      {{people.name}} -->
+      <a href="#" ng-click="editorEnabled=!editorEnabled" class="btn btn-primary " ><i class="fa fa-pencil-square-o"></i>Edit</a>
+    </div>
+    <div ng-show="editorEnabled">
+      <input ng-model="people.name">
+      <input ng-model="people.Lastname">
+      <input ng-model="people.age">
+      <a class="btn btn-success" href="#" ng-click="editorEnabled=!editorEnabled">Save</a>
+    </div>
+
+        </td>
       </tr>
     </tbody>
     
