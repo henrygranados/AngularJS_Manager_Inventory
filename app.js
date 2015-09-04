@@ -2,6 +2,7 @@
 var App = angular.module('sortApp', ['ui.bootstrap'])
 
 App.controller('mainController', function($scope, $modal, $log, $filter) {
+
   $scope.sortType     = 'id'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
   $scope.searchPerson  = '';     // set the default search/filter term
@@ -16,7 +17,6 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
     { id: 6, name: 'Alex', Lastname: 'Sams', age: 50 },
     { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 }
   ];  
-
   /*
   This function adds a new customer
   */
@@ -45,8 +45,17 @@ if(confirm("Are you sure to remove Customer")){
         ' <label class="col-sm-3 control-label no-padding-right ng-binding">NAME:</label><input style = "width:300px;"type="text" class="form-control ng-scope ng-pristine ng-valid" ng-model="person.name"></br>' +
         ' <label class="col-sm-3 control-label no-padding-right ng-binding">LASTNAME:</label><input style = "width:300px;" type="text" class="form-control ng-scope ng-pristine ng-valid" ng-model="person.Lastname"></br>' +
         ' <label class="col-sm-3 control-label no-padding-right ng-binding">AGE:</label><input style = "width:300px;" type="number"class="form-control ng-scope ng-pristine ng-valid" ng-model="person.age"></br>' +
-        ' <button type="button" class="btn btn-success" ng-click="add()"><i class="ace-icon fa fa-check"></i>Add New Customer</button>' +
+        ' <button id = "myid" type="button" class="btn btn-success" ng-click="add()"><i class="ace-icon fa fa-check"></i>Add New Customer</button>' +
         '  <button type="reset" class="btn ">Clear</button>' +
+        '<div ng-hide = "error_name_message" id="Error_Message_name">'+
+        '<p>Please enter a Name</p>'+
+      '</div>'+
+      '<div ng-hide = "error_lastname_message" id="Error_Message_Lastname">'+
+        '<p>Please enter a Lastname</p>'+
+      '</div>'+
+      '<div ng-hide = "error_age_message" id="Error_Message_Age">'+
+        '<p>Please enter age</p>'+
+      '</div>'+
         ' </form>' +
         '</div>' +
         '<div class="modal-footer">' +
@@ -57,13 +66,14 @@ if(confirm("Are you sure to remove Customer")){
     modalInstance.result.then(function (newPerson) {
       $scope.People.push(newPerson);
     });
-
   };
-
-
 
 var ModalInstanceCtrl = function($scope, $modalInstance) {
   $scope.person = {name: '', Lastname: '', age: ''};
+  $scope.error_name_message = true;
+  $scope.error_lastname_message = true;
+  $scope.error_age_message = true;
+
   
   $scope.ok = function() {
     $modalInstance.close($scope.selected.item);
@@ -75,8 +85,28 @@ var ModalInstanceCtrl = function($scope, $modalInstance) {
 
   $scope.add = function() {
     //Pass newPerson to caller from main controller
+    if($scope.person.name === ""){  
+
+   $scope.error_name_message= false;
+      $("#Error_Message_name").show().delay(1900).fadeOut(900); // don't leave error on screen for long
+    }
+    else if($scope.person.Lastname === ""){  
+      $scope.error_lastname_message = false;
+      $("#Error_Message_Lastname").show().delay(1900).fadeOut(900); // don't leave error on screen for long
+    }
+    else if($scope.person.age === "" || $scope.person.age < 1){  
+      $scope.error_age_message = false;
+      $("#Error_Message_Age").show().delay(1900).fadeOut(900); // don't leave error on screen for long
+    }
+    else{
     $modalInstance.close($scope.person);
+   }
   };
 };
    
 });
+
+
+
+
+
