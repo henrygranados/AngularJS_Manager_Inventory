@@ -35,7 +35,7 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
    $scope.removePerson = function(index){
     if(confirm("Are you sure to remove Customer")){
         angular.forEach($scope.People, function(value, key) {
-            if (value.id === index){
+            if (value.name === index){
                 $scope.People.splice(key, 1);
             }
         });
