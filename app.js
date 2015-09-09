@@ -11,14 +11,14 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
   setTimeout(function(){
     $scope.$apply(function(){
     $scope.People = [
-    { id: 1, name: 'Mike', Lastname: 'White', age: 26 },
-    { id: 2, name: 'Carl', Lastname: 'Barns', age: 41 },
-    { id: 3, name: 'Deb', Lastname: 'McDonals',age: 78 },
-    { id: 4, name: 'Tommy', Lastname: 'Humbs', age: 32 },
-    { id: 5, name: 'Mary', Lastname: 'Browns', age: 18 },
-    { id: 6, name: 'Alex', Lastname: 'Sams', age: 50 },
-    { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 },
-    { id: 8, name: 'Kathy', Lastname: 'Sams', age: 43 }
+    { name: 'Mike', Lastname: 'White', age: 26 },
+    { name: 'Carl', Lastname: 'Barns', age: 41 },
+    { name: 'Deb', Lastname: 'McDonals',age: 78 },
+    { name: 'Tommy', Lastname: 'Humbs', age: 32 },
+    { name: 'Mary', Lastname: 'Browns', age: 18 },
+    { name: 'Alex', Lastname: 'Sams', age: 50 },
+    { name: 'Beto', Lastname: 'Burns', age: 27 },
+    { name: 'Kathy', Lastname: 'Sams', age: 43 }
   ];  
 });
 },1000);
