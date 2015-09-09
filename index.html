@@ -43,8 +43,10 @@ display: none;
 </head>
 <body>
 <div class="container" style = "border: 1px solid #428bca;"ng-app="App" ng-controller="mainController">
-  
-  <h1>Customer List</h1>
+  <br/>
+  <p style = "font-size:20px;font-family: arial;color:#757B7D;text-shadow: -2px -3px 30px rgba(152, 150, 150, 1);">Author: Henry Granados</p>
+  <p style = "font-size:20px;font-family: arial;color:#757B7D;text-shadow: -2px -3px 30px rgba(152, 150, 150, 1);">Website: http://henrygranados.github.io/</p>
+  <h1>Customers List</h1>
   <br/>
   <form style="background:#428bca;padding-top:14px;padding-bottom:2px;">
     <div class="form-group">
@@ -54,9 +56,15 @@ display: none;
       </div>      
     </div>
   </form>
-  
+
+<table
+  <tr ng-repeat="item in items">
+      <td>
+      <p><i ng-hide="item.lateLoader"  class="icon icon-refresh icon-spin"><i style = "color:black; "class="fa fa-4x fa-spinner fa-spin"></i>Loading Customer's Data</i></p>
+      </td>
+      </tr>
+  </table>
   <table class="table table-bordered table-striped">
-    
     <thead>
       <tr>
         <td>
@@ -106,6 +114,7 @@ display: none;
         <td>
              <button type="button" class="btn btn-danger fa fa-trash-o" ng-click="removePerson(people.name)"></button> Remove
         </td>
+        
         <td>
 <div ng-hide="editorEnabled">
       <a href="#" ng-click="editorEnabled=!editorEnabled" class="btn btn-primary " ><i class="fa fa-pencil-square-o"></i>Edit</a>
@@ -119,12 +128,10 @@ display: none;
 
         </td>
       </tr>
-    </tbody>
-    
+    </tbody>  
   </table>
     <div  header-info innerHtm="inner_text"></div>
-    <a class="btn btn-primary fa fa-plus ng-scope" data-toggle="modal" ng-click="openPopupScreen()">Add Customer</a>
-  
+    <a class="btn btn-primary fa fa-plus ng-scope" data-toggle="modal" ng-click="openPopupScreen()">Add Customer</a>  
 </div>
 </body>
 
