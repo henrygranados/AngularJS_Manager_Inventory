@@ -1,4 +1,3 @@
-
 var App = angular.module('App', ['ui.bootstrap'])
 
 App.controller('mainController', function($scope, $modal, $log, $filter) {
@@ -6,17 +5,32 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
   $scope.sortType     = 'id'; // set the default sort type
   $scope.sortReverse  = false;  // set the default sort order
   $scope.searchPerson  = '';     // set the default search/filter term
-  
+
+
   // Array - List of People   
-  $scope.People = [
+  setTimeout(function(){
+    $scope.$apply(function(){
+    $scope.People = [
     { id: 1, name: 'Mike', Lastname: 'White', age: 26 },
     { id: 2, name: 'Carl', Lastname: 'Barns', age: 41 },
     { id: 3, name: 'Deb', Lastname: 'McDonals',age: 78 },
     { id: 4, name: 'Tommy', Lastname: 'Humbs', age: 32 },
     { id: 5, name: 'Mary', Lastname: 'Browns', age: 18 },
     { id: 6, name: 'Alex', Lastname: 'Sams', age: 50 },
-    { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 }
+    { id: 7, name: 'Beto', Lastname: 'Burns', age: 27 },
+    { id: 8, name: 'Kathy', Lastname: 'Sams', age: 43 }
   ];  
+});
+},1000);
+ /*
+ This function shows loading customer's data
+ */
+ $scope.items = [{name: "One"}];
+ setTimeout(function() {
+    $scope.$apply(function() {
+     $scope.items[0].lateLoader = ' ';  
+    });
+  }, 1000);
   /*
   This function adds a new customer
   */
@@ -40,7 +54,7 @@ App.controller('mainController', function($scope, $modal, $log, $filter) {
             }
         });
     }
-};   
+};  
   $scope.openPopupScreen = function() {
 
     var modalInstance = $modal.open({
@@ -108,8 +122,3 @@ var ModalInstanceCtrl = function($scope, $modalInstance) {
 };
    
 });
-
-
-
-
-
