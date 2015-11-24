@@ -66,7 +66,7 @@ var modalTemplate= '<div class="modal-header">   <a class="close" data-dismiss="
         '<div class="modal-footer">' +
         '  <a data-dismiss="modal" aria-hidden="true" class="btn btn-primary" ng-click="cancel()">close</a>' +
         '</div>';
-  $scope.People = [];  
+  //$scope.People = [];  
 
   $scope.openPopupScreen = function(people) {
 
