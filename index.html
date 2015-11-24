@@ -103,7 +103,7 @@ display: none;
         </td>
       </tr>
 
-     <tr  ng-repeat="people in People track by $index| filter:searchPerson">
+     <tr  ng-repeat="people in People | filter:searchPerson">
                 <td>{{ $index + 1 }}</td>
                 <td>{{ people.name }}</td>
                 <td>{{ people.Lastname }}</td>
@@ -113,7 +113,7 @@ display: none;
                </td>
                <td>
                 <div ng-hide="editorEnabled">
-                 <a  ng-click="openPopupScreen(people);" ng-click="editorEnabled=!editorEnabled; " class="btn btn-primary " ><i class="fa fa-pencil-square-o"></i>Edit</a>
+                 <a  ng-click="openPopupScreen(people);" ng-click="editorEnabled=!editorEnabled;" class="btn btn-primary " ><i class="fa fa-pencil-square-o"></i>Edit</a>
                </div>
       </td>
      </tr>
