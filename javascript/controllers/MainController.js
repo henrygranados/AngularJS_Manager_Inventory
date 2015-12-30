@@ -70,7 +70,14 @@
     console.log(person);
     $scope.person = person || {name: '', Lastname: '', age: ''};
 
-
+    $scope.buttonClear = false;
+    $scope.buttonSave = false;
+    $scope.buttonUpdate = false;
+    if($scope.person.name != ""){
+         $scope.buttonClear = true;
+         $scope.buttonSave = true;
+    }
+    $scope.buttonLowerRight = ($scope.person.name == "") ? "Close" : "Update";
     $scope.ok = function() {
       $modalInstance.close($scope.selected.item);
     };
