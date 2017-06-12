@@ -82,7 +82,7 @@
          $scope.buttonSave = true;
     }
 
-    $scope.buttonUpdate = ($scope.person.name == "") ? "Close" : "Update";
+    $scope.buttonUpdate = ($scope.person.name === "") ? "Close" : "Update";
     $scope.ok = function() {
       $modalInstance.close($scope.selected.item);
     };
