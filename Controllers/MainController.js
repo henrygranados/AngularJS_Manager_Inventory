@@ -42,8 +42,6 @@
   };
 
   $scope.openPopupScreen = function(people, userIndex) {
-    // alert(people);
-    //alert("Index: " + userIndex);
     var modalInstance = $modal.open({
       templateUrl: "Partials/partial1.html" ,
       controller: ModalInstanceCtrl,
