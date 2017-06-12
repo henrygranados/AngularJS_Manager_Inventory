@@ -56,14 +56,6 @@
 
     modalInstance.result.then(function (newPerson) {
 
-      var namesArray = [];
-      var lastnameArray = [];
-
-      angular.forEach($scope.People.customers, function(obj) {
-          namesArray.push(obj.name);
-          lastnameArray.push(obj.lastname);
-      });
-
         if(userIndex === undefined){
             if(newPerson.name === "" && newPerson.lastname === "" && newPerson.age === ""){
               return;
